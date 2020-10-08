@@ -1,6 +1,5 @@
 class Score < ActiveRecord::Base
     belongs_to :user
 
-    validates :title, presence: true
-    validates :composer, presence: true
+    validates :title, :composer, presence: true
 end
