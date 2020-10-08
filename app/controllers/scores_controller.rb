@@ -35,6 +35,7 @@ class ScoresController < ApplicationController
             erb :"scores/edit"
         else
             redirect "/scores"
+        end
     end
 
     patch 'scores/:id' do

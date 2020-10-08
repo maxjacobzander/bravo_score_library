@@ -4,6 +4,6 @@
 
 <ul>
 <% @scores.each do |score| %>
-<li><%= score.title %></li>
+ <li><a href="/scores/<%=score.id%>">    <%= score.title %></a></li>
 <% end %>
 </ul>
