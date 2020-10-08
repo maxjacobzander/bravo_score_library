@@ -1,8 +1,12 @@
 class ScoresController < ApplicationController
      
     get '/scores' do
-        @scores = Score.all
-        erb :"scores/index"
+        if logged_in?
+            @scores = Score.all
+            erb :"scores/index"
+        else
+            redirect "/login"
+        end
     end
 
     get '/scores/new' do
@@ -27,7 +31,10 @@ class ScoresController < ApplicationController
     get 'scores/:id/edit' do
         @users = User.all
         @score = Score.find_by_id(params[:id])
-        erb :"scores/edit"
+        if @score.user.id == current_user.id
+            erb :"scores/edit"
+        else
+            redirect "/scores"
     end
 
     patch 'scores/:id' do

@@ -9,9 +9,10 @@ class SessionsController < ApplicationController
 	   
 		if @user && @user.authenticate(params[:password])
 		  session[:user_id] = @user.id
-		  redirect "/success"
+		  redirect "/scores"
 		else
-		  redirect "/failure"
+		  redirect "/login"
 		end
-	end
+    end
+    
 end
