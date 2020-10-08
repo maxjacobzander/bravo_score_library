@@ -24,8 +24,26 @@ class ScoresController < ApplicationController
         end
     end
 
-    delete '/scores/:id' do
-        
+    get 'scores/:id/edit' do
+        @users = User.all
+        @score = Score.find_by_id(params[:id])
+        erb :"scores/edit"
+    end
+
+    patch 'scores/:id' do
+        @score = Score.find_by_id(params[:id])
+        params.delete("_method")
+        if @score.update(params)
+            redirect "scores/#{score.id}"
+        else
+            redirect "scores/new"
+        end
+    end
+
+    delete 'scores/:id' do
+        @score = Score.find_by_id(params[:id])
+        @score.destroy
+        redirect "/scores"
     end
 
 end

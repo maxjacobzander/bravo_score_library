@@ -6,4 +6,5 @@ end
 
 use ScoresController
 use UserController
+use SessionsController
 run ApplicationController

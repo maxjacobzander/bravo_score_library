@@ -1,0 +1,20 @@
+<header><h1>Bravo Personal Score Library Catalogue</h1></header>
+<br><br>
+<h2>Edit this entry</h2>
+
+<form method="POST" action="/scores/<%= @score.id %>">
+    <input type="hidden" id="hidden" name="_method" value="PATCH">
+    <select name="user_id">
+        <% @user.each do | user |%>
+            <option value="<%= user.id %>"><%= user.email %></option>
+        <% end %>
+    </select><br />
+
+
+    Title: <input type="text" name="title"><br />
+    Composer: <textarea name="composer"></textarea><br />
+    Genre: <textarea name="genre"></textarea><br />
+    Year: <textarea name="year_composed"></textarea><br />
+    <input type="submit">
+
+</form>

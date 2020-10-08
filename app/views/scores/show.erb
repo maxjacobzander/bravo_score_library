@@ -3,3 +3,13 @@
 <h2>Composed by: <%= @score.composer%></h2><br>
 <h2>Genre: <%= @score.genre %></h2><br>
 <h2>Year: <%= @score.year_composed %></h2>
+<br><br>
+<!-- edit link -->
+<a href="/scores/<%= @score.id %>/edit">Edit Entry</a>
+<br><br>
+<!-- delete link -->
+<h3>Remove from Library</h3>
+<form action = "scores/<%= @score.id %>" method = "POST">
+<input type="hidden" id="hidden" name="_method" value="DELETE">
+<input type="submit" value="Remove">
+</form>
