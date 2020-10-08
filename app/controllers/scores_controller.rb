@@ -50,7 +50,9 @@ class ScoresController < ApplicationController
 
     delete 'scores/:id' do
         @score = Score.find_by_id(params[:id])
-        @score.destroy
+        if @score.user.id == current_user.id
+            @score.destroy
+        end
         redirect "/scores"
     end
 
