@@ -10,10 +10,12 @@ class ScoresController < ApplicationController
     end
 
     get '/scores/new' do
+        redirect_if_not_logged_in
         erb :"scores/new"
     end
 
     get '/scores/:id' do
+        redirect_if_not_logged_in
         id = params[:id]
         @score = Score.find_by_id(id)
         erb :"scores/show"
@@ -29,6 +31,7 @@ class ScoresController < ApplicationController
     end
 
     get 'scores/:id/edit' do
+        redirect_if_not_logged_in
         @users = User.all
         @score = Score.find_by_id(params[:id])
         if @score.user.id == current_user.id

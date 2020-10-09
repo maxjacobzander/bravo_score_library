@@ -2,6 +2,11 @@
 <br><br>
 <h2>Welcome to the Bravo Personal Score Library Catalogue!</h2>
 <h3>Sign Up Here to Keep Track of the Scores in <em>Your</em> Library!</h3><br />
+<% if @user && @user.errors %>
+    <% @user.errors.full_messages.each do |error| %>
+    <p><%= error %></p>
+    <% end %>
+<% end %>
 <form method="POST" action="/users">
     <p>Name: <input type="text" name="name"></p>
     <p>Email: <input type="text" name="email"></p>
