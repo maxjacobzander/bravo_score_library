@@ -2,8 +2,17 @@ class ScoresController < ApplicationController
      
     get '/scores' do
         if logged_in?
-            @scores = Score.all
+            @scores = Score.all.ordered
             erb :"scores/index"
+        else
+            redirect "/login"
+        end
+    end
+
+    get '/scores/sort-by-composer' do
+        if logged_in?
+            @scores = Score.all.ordered
+            erb :"scores/index2"
         else
             redirect "/login"
         end
