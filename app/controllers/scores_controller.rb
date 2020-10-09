@@ -30,7 +30,7 @@ class ScoresController < ApplicationController
         end
     end
 
-    get 'scores/:id/edit' do
+    get '/scores/:id/edit' do
         redirect_if_not_logged_in
         @users = User.all
         @score = Score.find_by_id(params[:id])
@@ -41,17 +41,19 @@ class ScoresController < ApplicationController
         end
     end
 
-    patch 'scores/:id' do
+    patch '/scores/:id' do
         @score = Score.find_by_id(params[:id])
         params.delete("_method")
-        if @score.update(params)
-            redirect "scores/#{score.id}"
-        else
-            redirect "scores/new"
+        if @score.user.id == current_user.id
+            if @score.update(params)
+                redirect "scores/#{score.id}"
+            else
+                redirect "scores/new"
+            end
         end
     end
 
-    delete 'scores/:id' do
+    delete '/scores/:id' do
         @score = Score.find_by_id(params[:id])
         if @score.user.id == current_user.id
             @score.destroy
