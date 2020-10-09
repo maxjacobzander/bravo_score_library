@@ -23,10 +23,11 @@ class ScoresController < ApplicationController
 
     post '/scores' do
         score = Score.new(params)
+        score.user_id = current_user.id
         if score.save
-            redirect "scores/#{score.id}"
+            redirect "/scores/#{score.id}"
         else
-            redirect "scores/new"
+            redirect "/scores/new"
         end
     end
 
@@ -46,9 +47,9 @@ class ScoresController < ApplicationController
         params.delete("_method")
         if @score.user.id == current_user.id
             if @score.update(params)
-                redirect "scores/#{score.id}"
+                redirect "/scores/#{@score.id}"
             else
-                redirect "scores/new"
+                redirect "/scores/new"
             end
         end
     end

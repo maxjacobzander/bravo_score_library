@@ -2,9 +2,11 @@
 <br><br>
 <h2>Welcome Back, <%=current_user.name%> </h2><br>
 <h3>You currently have the following scores in your library:</h3><br />
-
 <ul>
 <% current_user.scores.each do |score| %>
- <li><a href="/scores/<%=score.id%>">    <%= score.title %></a></li><br />
+<li><a href="/scores/<%=score.id%>">    <%= score.title %></a> | <a href="/scores/<%=score.id%>"><%= score.composer %></a></li><br />
 <% end %>
+
+<form action="/scores/new">
+<input type="submit" value="Add A New Score" />
 </ul>
