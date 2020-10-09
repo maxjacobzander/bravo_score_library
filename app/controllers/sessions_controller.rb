@@ -13,6 +13,11 @@ class SessionsController < ApplicationController
 		else
 		  redirect "/login"
 		end
-    end
+	end
+	
+	get '/logout' do
+		session.clear
+		redirect "/"
+	end
     
 end

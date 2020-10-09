@@ -19,7 +19,11 @@
         <%= yield %>
 
       <footer class="branding">
-        <small>&copy; 2020 <strong>BravoLibrary</strong></small>
+          <% if logged_in? %>
+          <h4>Hello, <%= current_user.name %></h4>
+          <h5><a href="/logout">Logout</a></h5>
+          <% end %>
+        <small>&copy; 2020 <strong>Max Zander</strong></small>
       </footer>
     </div>
 
