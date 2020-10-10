@@ -11,7 +11,7 @@
 </div><br/ >
 <ul>
 <% current_user.scores.ordered.each do |score| %>
-<li><a href="/scores/<%=score.id%>">    <%= score.title %></a> | <%= score.composer %></li><br />
+<li><a href="/scores/<%=score.id%>">    <%= score.title %></a> | <%= score.composer_first %> <%= score.composer_last %></li><br />
 <% end %>
 
 <form action="/scores/new">
