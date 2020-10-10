@@ -7,6 +7,7 @@ The Bravo Personal Score Library Catalogue is a way for musicians to keep track 
 
 ### Installation Guide
 - Clone repository
+- Run `bundle install` to install all necessary gems
 - Run "shotgun" to start up the server
 - Either create an account or login to your existing account
 - Keep track of your score collection!
