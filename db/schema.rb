@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_08_130136) do
+ActiveRecord::Schema.define(version: 2020_10_10_141308) do
 
   create_table "scores", force: :cascade do |t|
     t.string "title"
-    t.string "composer"
+    t.string "composer_first"
     t.string "genre"
     t.integer "year_composed"
     t.integer "user_id"
+    t.string "composer_last"
   end
 
   create_table "users", force: :cascade do |t|
