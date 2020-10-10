@@ -114,6 +114,7 @@
   }
 
   img {
-    max-width: auto;
+    max-width: 75%;
+    height: auto;
   }
 }
