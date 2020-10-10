@@ -15,7 +15,7 @@
   body {
     background-color: tan;
     color: #333;
-    font-family: Sans-Serif;
+    font-family: Optima;
     line-height: 18px;
   }
 
@@ -111,5 +111,9 @@
   h2 {
     font-size: 18px;
     line-height: 24px;
+  }
+
+  img {
+    max-width: auto;
   }
 }
