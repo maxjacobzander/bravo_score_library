@@ -2,7 +2,7 @@ class ScoresController < ApplicationController
      
     get '/scores' do
         if logged_in?
-            @scores = Score.all.ordered
+            @scores = current_user.scores.ordered
             erb :"scores/index"
         else
             redirect "/login"
@@ -11,8 +11,8 @@ class ScoresController < ApplicationController
 
     get '/scores/sort-by-composer' do
         if logged_in?
-            @scores = Score.all.ordered
-            erb :"scores/index2"
+            @scores = current_user.scores.ordered_by_composer
+            erb :"scores/index"
         else
             redirect "/login"
         end
@@ -43,7 +43,7 @@ class ScoresController < ApplicationController
     get '/scores/:id/edit' do
         redirect_if_not_logged_in
         @users = User.all
-        @score = Score.find_by_id(params[:id])
+        @score = Score.find(params[:id])
         if @score.user.id == current_user.id
             erb :"scores/edit"
         else

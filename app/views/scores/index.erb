@@ -5,12 +5,12 @@
 <div class="dropdown">
   Sort By:
   <div class="dropdown-content">
-    <a href="#">Title</a>
+    <a href="/scores">Title</a>
     <a href="/scores/sort-by-composer">Composer</a>
   </div>
 </div><br/ >
 <ul>
-<% current_user.scores.ordered.each do |score| %>
+<% @scores.each do |score| %>
 <li><a href="/scores/<%=score.id%>">    <%= score.title %></a> | <%= score.composer_first %> <%= score.composer_last %></li><br />
 <% end %>
 
